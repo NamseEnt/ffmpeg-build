@@ -45,7 +45,7 @@ jobs:
       - name: Make tarballs
         run: |
           mkdir -p artifacts/release/
-          find . -name 'ffmpeg' -type f -exec sh -c 'tar -czvf artifacts/release/ffmpeg-${{ env.arch }}.tar.gz -C $(dirname {}) $(basename {})' \;
+          find . -name 'ffmpeg' -type f -exec sh -c 'tar -czvf artifacts/release/ffmpeg-${{ env.ARCH }}.tar.gz -C $(dirname {}) $(basename {})' \;
           ls -l artifacts/release/
 
       - name: Release
