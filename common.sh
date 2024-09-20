@@ -43,6 +43,7 @@ FFMPEG_CONFIGURE_FLAGS=(
     --enable-filter=null
     --enable-filter=setpts
     --enable-filter=trim
+    --enable-filter=aresample
 
     --disable-protocols
     --enable-protocol=file
