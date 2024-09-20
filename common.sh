@@ -4,9 +4,10 @@ FFMPEG_TARBALL=ffmpeg-$FFMPEG_VERSION.tar.gz
 FFMPEG_TARBALL_URL=http://ffmpeg.org/releases/$FFMPEG_TARBALL
 
 FFMPEG_CONFIGURE_FLAGS=(
-    --enable-shared
+    --disable-shared
     --enable-static
     --pkg-config-flags="--static"
+    --extra-ldexeflags="-static"
 
     --disable-doc
     --disable-debug
