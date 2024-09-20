@@ -7,13 +7,9 @@ on:
 jobs:
   linux:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        arch:
-          - x86_64
-          # - arm64
     env:
-      ARCH: ${{ matrix.arch }}
+      ARCH: x86_64
+      FFMPEG_VERSION: 7.0.2
     steps:
       - uses: actions/checkout@v4
 
@@ -49,7 +45,7 @@ jobs:
       - name: Make tarballs
         run: |
           mkdir -p artifacts/release/
-          find . -name 'ffmpeg' -type f -exec sh -c 'tar -czvf artifacts/release/ffmpeg-${{ matrix.arch }}.tar.gz -C $(dirname {}) $(basename {})' \;
+          find . -name 'ffmpeg' -type f -exec sh -c 'tar -czvf artifacts/release/ffmpeg-${{ env.arch }}.tar.gz -C $(dirname {}) $(basename {})' \;
           ls -l artifacts/release/
 
       - name: Release
