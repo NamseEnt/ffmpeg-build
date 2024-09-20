@@ -49,7 +49,7 @@ jobs:
       - name: Make tarballs
         run: |
           mkdir -p artifacts/release/
-          find . -name 'ffmpeg' -type f -exec tar czf artifacts/release/ffmpeg-${{ matrix.arch }}.tar.gz {} +
+          find . -name 'ffmpeg' -type f -exec sh -c 'tar -czvf artifacts/release/ffmpeg-${{ matrix.arch }}.tar.gz -C $(dirname {}) $(basename {})' \;
           ls -l artifacts/release/
 
       - name: Release
