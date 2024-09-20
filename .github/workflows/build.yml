@@ -22,7 +22,20 @@ jobs:
           sudo apt-get update -y && \
           sudo apt-get install -y \
             yasm \
-            libopus-dev
+            build-essential \
+            wget
+
+      - name: install opus 1.5.2
+        run: |
+          wget https://downloads.xiph.org/releases/opus/opus-1.5.2.tar.gz
+          tar -xzvf opus-1.5.2.tar.gz
+          cd opus-1.5.2
+
+          ./configure
+          make
+          sudo make install
+
+          sudo ldconfig
 
       - name: Install ARM64 compiler
         if: env.ARCH == 'arm64'
