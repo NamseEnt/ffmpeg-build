@@ -15,7 +15,6 @@ FFMPEG_CONFIGURE_FLAGS=(
     --disable-swscale
     --disable-programs
     --enable-ffmpeg
-    --enable-ffprobe
     --disable-network
     --disable-muxers
     --disable-demuxers
@@ -48,6 +47,10 @@ FFMPEG_CONFIGURE_FLAGS=(
     --disable-protocols
     --enable-protocol=file
     --enable-protocol=pipe
+
+    --enable-muxer=opus
+
+    --enable-encoder=libopus
 
     --enable-demuxer=image2
     --enable-demuxer=aac
