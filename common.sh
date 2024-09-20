@@ -48,8 +48,8 @@ FFMPEG_CONFIGURE_FLAGS=(
     --enable-protocol=file
     --enable-protocol=pipe
 
+    --enable-libopus
     --enable-muxer=opus
-
     --enable-encoder=libopus
 
     --enable-demuxer=image2
